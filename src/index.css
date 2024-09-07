@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Add this in your CSS file or in a <style> block */
+.custom-shape {
+    clip-path: polygon(100% 49%, 0 15%, 0 75%);
+    width: 70px;
+    /* Adjust width as needed */
+    height: 60px;
+    /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    padding-right: 40px;
+    padding-bottom: 15px;
+}
+
+.cropped-gif {
+    overflow: hidden;
+    /* Hide the overflow */
+}
+
+.cropped-gif img {
+    /* Adjust the GIF's position within the container */
+    position: relative;
+    left: -70px;
+    /* Adjust as needed */
+    top: -80px;
+    /* Adjust as needed */
+    right: -30px;
+}
+
+#container {
+    filter: url(#threshold) blur(0.6px);
+}
+
+.waviy {
+    font-size: 30px;
+}
+
+.waviy span {
+    display: inline-block;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+
+}
+
+@keyframes waviy {
+
+    0%,
+    40%,
+    100% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(-12px)
+    }
+}
+
+
+.scroll::-webkit-scrollbar {
+    width: 28px;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(100vw, 100vh);
+        /* Fall diagonally to the bottom-right */
+        opacity: 1;
+    }
+}
+
+.animate-twinkle {
+    animation: twinkle 5s infinite;
+}
+
+.animate-fall {
+    animation: fall 3s linear infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        text-shadow: 1px 1px 8px 11px rgba(255, 255, 255, 1);
+        /* Max glow */
+    }
+
+    50% {
+       text-shadow: 0.2px 0 1px 2px rgba(234, 210, 210, 0.332);
+        /* Dim glow */
+    }
+}
+
+.animate-blink {
+    animation: blink 3s infinite;
+    /* Animate the glow with a 2s interval */
+}
+
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Start 20px below the final position */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* Final position */
+    }
+}
+
+.animate-fade-slide-up {
+    animation: fadeSlideUp 2s ease-out;
+}
